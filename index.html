@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Weather App</title> 
+</head>
+
+<body>
+    <div class="container">
+        <div class="one-quarter-row">
+            <div class="search-option">
+                    <a href="/searchmenu.html" class="go-to"><button type="menu" class="btn">Search for places </button></a>
+                    <span class="fa-regular fa-compass"></span>
+            </div>
+
+            <div class="cloud-images">
+                    <div class="top-section">
+                        <div class="cloud-1"><img src="/images/cloudy.png" alt="little-cloud"></div>
+                        <div class="cloud-2"><img src="/images/cloudy.png" alt="little-cloud"></div>
+                    </div>
+
+                    <div class="cloud-3"><img src="/images/IsoRainSwrsDay.png" alt="cloud-image"></div>                    
+                    
+                    <div class="bottom-section">
+                        <div class="cloud-4"><img src="/images/cloudy.png" alt="little-cloud"></div>
+                        <div class="cloud-5"><img src="/images/cloudy.png" alt="little-cloud"></div>
+                    </div>
+            </div>
+
+            <div class="temperature">
+                <p class="temp-number">26<span class="temp-symbol">°C</span></p>
+            </div>
+
+            <div class="temp-description">
+                <p class="weather-type">Shower</p>
+            </div>
+
+            <div class="weather-date">
+                <p class="day">Today <sup class="bullet">. </sup><span class="date">Tue. 23, Nov</span></p>
+            </div>
+    
+            <div class="weather-location">
+                <span class="fa-solid fa-location-dot"></span><p class="location-name">Lagos</p> 
+            </div>
+        </div>
+
+        <div class="two-third-row">
+            <section class="main-content">
+                <div class="degree-icon">
+                    <div class="celsius-container">
+                        <span class="celsius-icon">&#8451;</span>
+                    </div>
+    
+                    <div class="fahrenheit-container">
+                        <span class="fahrenheit-icon">&#8457;</span>
+                    </div>
+                </div>
+        
+                <div class="weekly-forecast">
+                    <div class="days">
+                        <p>Tomorrow</p>
+                        <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Stormy Weather">
+                        <div class="temp-text">
+                            <p class="morning-temp">32°C <span class="afternoon-temp">24°C</span></p>
+                        </div>
+                    </div>
+
+                    <div class="days">
+                        <p>Wed, 30 Nov</p>
+                        <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Light Rain Weather">
+                        <div class="temp-text">
+                            <p class="morning-temp">32°C <span class="afternoon-temp">26°C</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="days">
+                        <p>Thurs, 1 Dec</p>
+                        <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Heavy Rain Weather">
+                        <div class="temp-text">
+                            <p class="morning-temp">32°C <span class="afternoon-temp">26°C</span></p>
+                        </div>
+                    </div>
+
+                    <div class="days">
+                        <p>Fri, 2 Dec</p>
+                        <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Light Rain Weather">
+                        <div class="temp-text">
+                            <p class="morning-temp">30°C <span class="afternoon-temp">24°C</span></p>
+                        </div>
+                    </div>
+
+                    <div class="days">
+                        <p>Sat, 3 Dec</p>
+                        <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Cloudy Weather">
+                        <div class="temp-text">
+                            <p class="morning-temp">34°C <span class="afternoon-temp">26°C</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-container">
+                    <p class="highlight-text">Today's Highlights</p>
+            
+                    <div class="content-container top">    
+                        <div class="highlights-content">
+                            <p class="highlight-header">Wind Status</p>
+                            <p class="number-value">7<span class="number-unit">mph</span></p>
+                        <div class="highlight-icon">
+                            <p><span class="fa-solid fa-caret-down"></span> wsw</p> 
+                        </div>
+                        </div>
+
+                        <div class="highlights-content">
+                            <p class="highlight-header">Humidity</p>
+                            <p class="number-value">74<span class="number-unit">%</></p>
+                        <div class="highlight-icon">
+                            <div class="humidity-values">
+                                <label for="humidity-value"><span>0</span> <span>50</span> <span>100</span></span></label>
+                            </div>
+                        <div>
+                            <meter id="humidity-value" min= "0" max="100" value="74"></meter>
+                        </div>
+                        <div class="humidity-percent">
+                            <label for="humidity-percent"><span>%</span></la>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="content-container bottom">
+                        <div class="highlights-content">
+                            <p class="highlight-header">Visibility</p>
+                            <p class="number-value">6,4<span class="number-unit"> miles</p>
+                        </div>
+
+                        <div class="highlights-content">
+                            <p class="highlight-header">Air Pressure</p>
+                            <p class="number-value">998<span class="number-unit"> mb</p>
+                        </div>
+                    </div>
+                </div>
+                
+            
+                <footer>
+                    <p>created by <a href="#" class="link">HayCodes</a> - devChallenges.io</p>
+                </footer>
+
+        </div>
+            </section>
+    </div> 
+ 
+
+    <script src="script.js"></script>
+</body>
+
+</html>

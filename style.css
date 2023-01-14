@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+:root{
+    --lblue: #1E213A;
+    --ash: #6E707A;
+    --sans: 'Raleway',  sans-serif;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--sans);
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+.one-quarter-row {
+    background-color: #1E213A;
+    color: var(--ash);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.search-option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-compass {
+    background-color: var(--ash);
+    color: #E7E7EB;
+    border-radius: 50%;
+    padding: 7px;
+}
+
+button.btn{
+    background-color: var(--ash);
+    border: none;
+    border-radius: 5px;
+    color: #E7E7EB;
+    padding: 5px;
+    width: 120px;
+    height: 30px;
+    font-family: var(--sans);
+    font-weight: normal;
+}
+
+
+/** NAVBAR/SEARCH **/
+.nav-container {
+    background-color: #1E213A;
+    color: var(--ash);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+    height: max-content;
+}
+
+.search-container{
+    margin: 15px 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fa-magnifying-glass{
+    position: relative;
+    left: 25px;  
+    z-index: 999;
+    top: 0px;
+    color: #616475;
+}
+
+.search-container>.search{
+    height: 35px;
+    padding-left: 45px;
+    background-color: inherit;
+    border: 1px solid #E7E7EB;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #616475;
+    font-family: var(--sans);
+    margin-left: -10px;
+    width: 70%;
+    margin-right: 5px;
+}
+
+.submit{
+    height: 35px;
+    width: 20%;
+    background-color: #3C47E9;
+    color: #E7E7EB;
+    font-family: var(--sans);
+    border: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cloud-images{
+    margin-top: 20px;
+    display: grid;
+}
+
+.top-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cloud-1{
+    margin-left: -4rem;
+    opacity: 0.2;
+}
+
+.cloud-2 {
+    margin-right: -2.5rem;
+    opacity: 0.2;
+}
+
+.cloud-3 {
+    margin-top: -50px;
+    margin-left: 4rem;
+    margin-right: 3rem;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.bottom-section{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.cloud-4 {
+    margin-top: -2rem;
+    margin-left: -4rem;
+    opacity: 0.2
+}
+
+.cloud-5 {
+    margin-top: -1.5rem;
+    margin-right: -2.5rem;
+    opacity: 0.2
+}
+
+.temperature{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.temp-number{
+    font-family: 'Raleway', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: medium;
+    font-size: 100px;
+    line-height: 0;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.temp-symbol{
+    font-size: 35px;
+    color: rgba(219, 219, 219, 0.808) !important;
+    font-weight: normal;
+    text-shadow: 10px black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.temp-description{
+    line-height: 1;
+    text-align: center;
+    color: rgba(219, 219, 219, 0.808);
+    font-weight: 650;
+    letter-spacing: 1.5px;
+    font-size: 1.32rem;
+    font-family: 'Raleway', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.weather-date{
+    margin-top: 35px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(219, 219, 219, 0.808);
+    word-spacing: 2px;
+}
+
+sup{
+    vertical-align: top;
+    font-weight: bolder;
+}
+
+.weather-location{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.8rem;
+    color:rgba(219, 219, 219, 0.808);
+    font-family: 'Raleway' system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu;
+}
+
+span.fa-location-dot {
+    margin-top: 15px;
+    padding-right: 5px;
+    color:rgba(219, 219, 219, 0.808)
+}
+
+.two-third-row {
+    background-color: #100E1D;
+    color: rgba(219, 219, 219, 0.808);
+    margin: 0;
+    padding: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.degree-icon {
+    display: none;
+}
+
+.weekly-forecast{
+    display: grid;
+    gap: 20px 20px;
+    grid-template-columns: auto auto;
+}
+
+.days {
+    background-color: #1E213A;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.days>p{
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.weekly-weather{
+    max-width: 60%;
+    width: 150px;
+    height: auto;
+}
+
+.temp-text {
+    display: flex;
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+    word-spacing: 10px;
+    font-weight: bold;
+}
+
+.highlight-container{
+    padding-top: 10px;
+}
+.highlight-text{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.highlights-content{
+    background-color: #1E213A;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.highlight-header{
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+.number-unit{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.number-value{
+    font-size: 5rem;
+    font-weight: bolder;
+    line-height: 0;
+    margin: 60px 0;
+}
+
+.highlight-icon{
+    margin-bottom: 10px;
+    word-spacing: 5px;
+}
+
+
+meter::-webkit-meter-optimum-value{
+    background: #FFEC65;
+}
+
+meter {
+    width: 200px;
+}
+
+.humidity-values{
+    word-spacing: 70px;
+    margin: 0 30px;
+}
+
+.humidity-percent{
+    text-align: right;
+    margin: 0 60px;
+    padding: 0;
+}
+
+.fa-caret-down{
+    background-color:#6E707A;
+    border-radius: 50%;
+    padding: 5px 7px;
+}
+
+footer {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.link{
+    font-weight: bold;
+    text-decoration: underline;
+    color:rgba(219, 219, 219, 0.808)
+}
+
+
+
+
+@media only screen and (min-width: 400px) {
+    .cloud-3{
+        margin: auto;
+    }
+
+    .humidity-percent {
+        margin: 0 270px;
+    }
+}
+
+
+@media only screen and (min-width: 600px) {
+    .cloud-3{
+        margin: auto;
+    }
+
+    .humidity-percent{
+        margin: 0px 320px 0 370px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .container{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .one-quarter-row{
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+        flex-basis: 30%;
+        border: none;
+        overflow: none;
+    }
+
+    .two-third-row{
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 10px;
+        border: none;
+        overflow: none;
+        flex-basis: 70%;
+    }
+
+    .main-content{
+        margin: 30px;
+    }
+    
+
+    .degree-icon{
+        display: flex;
+        justify-content: right;
+        margin: 15px;
+        margin-right: 0;
+        padding: 0 20px;
+    }
+
+
+    .celsius-container{
+        margin-right: 10px;
+        background-color: #E7E7EB;
+        color: #110E3C;
+        border-radius: 20px;
+        padding: 5px 8px;
+        font-weight: bold;
+        font-family: 'Raleway';
+    }
+
+    .fahrenheit-container{
+        background-color: #585676;
+        color: #E7E7EB;
+        border-radius: 20px;
+        padding: 5px 8px;
+        font-weight: bold;
+        font-family: 'Raleway';
+    }
+
+    .weekly-forecast{
+        display: flex;
+    }
+
+    .content-container.top{
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 30px;
+    }
+
+    .content-container.bottom{
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 30px;   
+    }
+
+    .humidity-percent{
+        margin: 0;
+        padding-right: 110px;
+    }
+
+    .humidity-values{
+        margin: 0;
+    }
+
+    .temp-number{
+        margin-top: 80px;
+        font-size: 120px;
+    }
+
+    .temp-symbol{
+        font-size: 50px;
+    }
+    
+    .temp-description{
+        margin-top: 120px;
+    }
+
+    .weather-date{
+        margin-top: 120px;
+    }
+
+    .weather-location{
+        margin-top: 30px;
+    }
+    
+
+
+
+
+
+}
