@@ -97,6 +97,10 @@ button.btn{
     margin-right: 5px;
 }
 
+.search-container input:focus{
+    outline: none;
+    border: 1px solid var(--ash);
+}
 .submit{
     height: 35px;
     width: 20%;
@@ -160,7 +164,7 @@ button.btn{
     padding: 0;
 }
 
-.temp-number{
+#temp{
     font-family: 'Raleway', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     font-weight: medium;
@@ -188,7 +192,7 @@ button.btn{
     font-family: 'Raleway', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.weather-date{
+.date-time{
     margin-top: 35px;
     text-align: center;
     font-size: 12px;

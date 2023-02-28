@@ -32,19 +32,19 @@
             </div>
 
             <div class="temperature">
-                <p class="temp-number">26<span class="temp-symbol">°C</span></p>
+                <p id="temp">0<span class="temp-symbol">°C</span></p>
             </div>
 
             <div class="temp-description">
-                <p class="weather-type">Shower</p>
+                <p id="weather-type">Condition</p>
             </div>
 
-            <div class="weather-date">
-                <p class="day">Today <sup class="bullet">. </sup><span class="date">Tue. 23, Nov</span></p>
+            <div class="date-time">
+                <p id="date-time">Monday <sup class="bullet">. </sup>12:00</p>
             </div>
     
             <div class="weather-location">
-                <span class="fa-solid fa-location-dot"></span><p class="location-name">Lagos</p> 
+                <span class="fa-solid fa-location-dot"></span><p id="location">Location</p> 
             </div>
         </div>
 
@@ -52,20 +52,20 @@
             <section class="main-content">
                 <div class="degree-icon">
                     <div class="celsius-container">
-                        <span class="celsius-icon">&#8451;</span>
+                        <button class="celsius-icon active">&#8451;</button>
                     </div>
     
                     <div class="fahrenheit-container">
-                        <span class="fahrenheit-icon">&#8457;</span>
+                        <button class="fahrenheit-icon">&#8457;</button>
                     </div>
                 </div>
         
                 <div class="weekly-forecast">
-                    <div class="days">
+                    <div class="days" id="current temp">
                         <p>Tomorrow</p>
                         <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Stormy Weather">
                         <div class="temp-text">
-                            <p class="morning-temp">32°C <span class="afternoon-temp">24°C</span></p>
+                            <p class="day-temp">32°C <span class="night-temp">24°C</span></p>
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@
                         <p>Wed, 30 Nov</p>
                         <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Light Rain Weather">
                         <div class="temp-text">
-                            <p class="morning-temp">32°C <span class="afternoon-temp">26°C</span></p>
+                            <p class="day-temp">32°C <span class="night-temp">26°C</span></p>
                         </div>
                     </div>
                     
@@ -81,7 +81,7 @@
                         <p>Thurs, 1 Dec</p>
                         <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Heavy Rain Weather">
                         <div class="temp-text">
-                            <p class="morning-temp">32°C <span class="afternoon-temp">26°C</span></p>
+                            <p class="day-temp">32°C <span class="night-temp">26°C</span></p>
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
                         <p>Fri, 2 Dec</p>
                         <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Light Rain Weather">
                         <div class="temp-text">
-                            <p class="morning-temp">30°C <span class="afternoon-temp">24°C</span></p>
+                            <p class="day-temp">30°C <span class="night-temp">24°C</span></p>
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
                         <p>Sat, 3 Dec</p>
                         <img src="/images/mostly_cloudy.png" class="weekly-weather" alt="Cloudy Weather">
                         <div class="temp-text">
-                            <p class="morning-temp">34°C <span class="afternoon-temp">26°C</span></p>
+                            <p class="day-temp">34°C <span class="night-temp">26°C</span></p>
                         </div>
                     </div>
                 </div>
@@ -108,15 +108,15 @@
                     <div class="content-container top">    
                         <div class="highlights-content">
                             <p class="highlight-header">Wind Status</p>
-                            <p class="number-value">7<span class="number-unit">mph</span></p>
-                        <div class="highlight-icon">
+                            <p class="number-value" id="wind-status">7<span class="number-unit">mph</span></p>
+                        <div class="highlight-icon"> 
                             <p><span class="fa-solid fa-caret-down"></span> wsw</p> 
                         </div>
                         </div>
 
                         <div class="highlights-content">
                             <p class="highlight-header">Humidity</p>
-                            <p class="number-value">74<span class="number-unit">%</></p>
+                            <p class="number-value" id="humidity">74<span class="number-unit">%</p>
                         <div class="highlight-icon">
                             <div class="humidity-values">
                                 <label for="humidity-value"><span>0</span> <span>50</span> <span>100</span></span></label>
@@ -134,12 +134,12 @@
                     <div class="content-container bottom">
                         <div class="highlights-content">
                             <p class="highlight-header">Visibility</p>
-                            <p class="number-value">6,4<span class="number-unit"> miles</p>
+                            <p class="number-value" id="visibility">6,4<span class="number-unit"> miles</p>
                         </div>
 
                         <div class="highlights-content">
                             <p class="highlight-header">Air Pressure</p>
-                            <p class="number-value">998<span class="number-unit"> mb</p>
+                            <p class="number-value" id="air-pressure">998<span class="number-unit">mb</p>
                         </div>
                     </div>
                 </div>
