@@ -162,6 +162,8 @@ button.btn{
     text-align: center;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 #temp{
@@ -447,12 +449,14 @@ footer {
         margin: 0;
     }
 
+    
+
     .temp-number{
         margin-top: 80px;
         font-size: 120px;
     }
 
-    .temp-symbol{
+    .temp-unit{
         font-size: 50px;
     }
     
