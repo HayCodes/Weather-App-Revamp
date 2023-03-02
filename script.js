@@ -1,17 +1,18 @@
-const temp = document.getElementsByClassName("temp-number"),
+const temp = document.getElementById("temp"),
      date = document.getElementById("date-time"),
     currentLocation = document.getElementById("location"),
     condition = document.getElementById("weather-type"),
-    windStatus = document.getElementById("wind-status"),
+    windSpeed = document.getElementById("wind-speed"),
     humidity = document.getElementById("humidity"),
     meter = document.querySelector("meter"),
-    visbility = document.getElementById("visibility"),
+    visibility = document.getElementById("visibility"),
     airPressure = document.getElementById("air-pressure");
 
 
 let currentCity = '';
 let currentUnit = "c";
-let week = "Week";
+
+//Adding CSS style
 
 
 
@@ -85,12 +86,19 @@ function getWeatherData(city, unit, week) {
             }
             currentLocation.innerText = data.resolvedAddress;
             condition.innerText = today.conditions;
-            windStatus.innerText = today.windstatus;
+            windSpeed.innerText = today.windspeed + " mph";
             humidity.innerText = today.humidity + "%";
-            visbility.innerText = today.visbility;
-            airPressure.innerText = today.airpressure; 
+            visibility.innerText = today.visibility + " miles";
+            airPressure.innerText = today.winddir + "mb"; 
         });
 }
+
+//Get meter value to align with humidity value
+function myMetre() {
+    document.getElementById("myMeter").value = today.humidity;
+    
+}
+
 //celsius to fahrenheit
 function celciusToFahrenheit(temp) {
     return ((temp * 9) / 5 + 32).toFixed(1);
