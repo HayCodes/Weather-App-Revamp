@@ -132,12 +132,16 @@ button.btn{
     opacity: 0.2;
 }
 
-.cloud-3 {
+.weather-icon {
     margin-top: -50px;
     margin-left: 4rem;
     margin-right: 3rem;
     margin-bottom: 0;
     padding: 0;
+}
+
+img {
+    width: 100%;
 }
 
 .bottom-section{
@@ -166,22 +170,23 @@ button.btn{
     justify-content: center;
 }
 
+
 #temp{
     font-family: 'Raleway', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     font-weight: medium;
     font-size: 100px;
     line-height: 0;
-    margin-top: 10px;
-    margin-bottom: 40px;
+    margin: 40px 0 50px 0;
 }
 
 .temp-symbol{
-    font-size: 35px;
+    font-size: 40px;
     color: rgba(219, 219, 219, 0.808) !important;
     font-weight: normal;
     text-shadow: 10px black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', "Raleway", 'Trebuchet MS', sans-serif;
+    margin: 20px 5px;
 }
 
 .temp-description{
@@ -294,14 +299,21 @@ span.fa-location-dot {
 .number-unit{
     font-size: 3rem;
     font-weight: bold;
+    margin: 50px 10px;
 }
 
 .number-value{
     font-size: 5rem;
     font-weight: bolder;
     line-height: 0;
-    margin: 60px 0;
+    margin: 70px 0;
 }
+
+.value-container{
+    display: flex;
+    justify-content: center;
+}
+
 
 .highlight-icon{
     margin-bottom: 10px;
@@ -310,11 +322,15 @@ span.fa-location-dot {
 
 
 meter::-webkit-meter-optimum-value{
-    background: #FFEC65;
+    box-shadow: 0 5px 5px -5px #999 inset;
+    background: linear-gradient(90deg, #e10c0c var(--high), #04c81e var(--moderate), #84ff65 var(--moderate), #FFEC65 var(--low));
 }
 
 meter {
     width: 200px;
+    --low: 30%;
+    --moderate: 50%;
+    --high: 100%;
 }
 
 .humidity-values{
@@ -349,7 +365,7 @@ footer {
 
 
 @media only screen and (min-width: 400px) {
-    .cloud-3{
+    .weather-icon{
         margin: auto;
     }
 
@@ -360,7 +376,7 @@ footer {
 
 
 @media only screen and (min-width: 600px) {
-    .cloud-3{
+    .icon{
         margin: auto;
     }
 
@@ -449,16 +465,11 @@ footer {
         margin: 0;
     }
 
-    
-
     .temp-number{
         margin-top: 80px;
         font-size: 120px;
     }
 
-    .temp-unit{
-        font-size: 50px;
-    }
     
     .temp-description{
         margin-top: 120px;

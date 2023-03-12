@@ -4,16 +4,15 @@ const temp = document.getElementById("temp"),
     condition = document.getElementById("weather-type"),
     windSpeed = document.getElementById("wind-speed"),
     humidity = document.getElementById("humidity"),
-    meter = document.querySelector("meter"),
+    mainIcon = document.getElementById("icon"),
     visibility = document.getElementById("visibility"),
-    airPressure = document.getElementById("air-pressure");
+    humidity_status = document.querySelector('.humidity-status'),
+    airPressure = document.getElementById("air-pressure"); 
 
-let currentCity = '';
+
+let currentCity = '';   
 let currentUnit = "c";
-let week = "week";
-
-//Adding CSS style
-
+let week = "Week";
 
 
 //Update Date-Time
@@ -25,7 +24,7 @@ function getDateTime() {
     let days = [
         "Sunday",
         "Monday",
-        "Tuesday",
+        "Tuesday",  
         "Wednesday",
         'Thursday',
         'Friday',
@@ -60,7 +59,7 @@ function getPublicIp() {
     .then((data) => {
         console.log(data);
         currentCity = data.currentCity;
-        getWeatherData(data.city , currentUnit , week)
+        getWeatherData(data.city , currentUnit , week);
     });
 }
 
@@ -86,10 +85,13 @@ function getWeatherData(city, unit, week) {
             }
             currentLocation.innerText = data.resolvedAddress;
             condition.innerText = today.conditions;
-            windSpeed.innerText = today.windspeed + " mph";
-            humidity.innerText = today.humidity + "%";
-            visibility.innerText = today.visibility + " miles";
-            airPressure.innerText = today.winddir + "mb"; 
+            windSpeed.innerText = today.windspeed;
+            humidity.innerText = today.humidity;
+            humidity_status.setAttribute("value", today.humidity);
+            humidity_status.setAttribute("style", "--low: 30%; --moderate: 50%; --high: 100%;");
+            visibility.innerText = today.visibility;
+            airPressure.innerText = today.winddir; 
+            mainIcon.src = getIcon(today.icon);
         });
 }
 
@@ -98,8 +100,24 @@ function celciusToFahrenheit(temp) {
     return ((temp * 9) / 5 + 32).toFixed(1);
 } 
 
-//Get meter value to align with humidity value
-function myMetre() {
-    document.getElementById("myMeter").value == today.temp;  
+
+function getIcon(condition) {
+    if (condition === "Partly-cloudy-day") {
+        return "images/partly_cloudy.png";
+    }else if (condition === "rain") {
+        return "images/IsoRainSwrsDay.png";
+    }else if (condition === "clear-day") {
+        return "images/clear.png";
+    }else if (condition === "mostly-cloudy-day") {
+        return "images/mostly_cloudy.png";
+    }else if (condition === "light-rain") {
+        return "images/light_rain.png";
+    }else if (condition === "fog" || "overcast") {
+        return "images/fog.png";
+    }else if (condition === "partly-cloudy-night") {
+        return "images/partly_cloudy.png";
+    }else {
+        return "images/clear.png";
+    }
 }
 
