@@ -498,16 +498,12 @@ footer {
     }
     
     #temp{
-        font-size: 90px;
-        margin: 25px 0 10px 0;
+        font-size: 100px;
+        margin: 50px 0 10px 0;
     }
     
     .temp-symbol{
         margin: 30px 5px 0;
-    }
-    
-    .temp-description{
-        margin-top: 70px !important;
     }
     
     .date-time{
@@ -608,10 +604,4 @@ footer {
     .weather-location{
         margin-top: 30px;
     }
-    
-
-
-
-
-
 }
