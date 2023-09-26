@@ -42,6 +42,7 @@ body {
     color: #E7E7EB;
     border-radius: 50%;
     padding: 7px;
+    cursor: pointer;
 }
 
 button.btn{
@@ -54,6 +55,7 @@ button.btn{
     height: 30px;
     font-family: var(--sans);
     font-weight: normal;
+    cursor: auto;
 }
 
 
@@ -170,7 +172,6 @@ img {
     justify-content: center;
 }
 
-
 #temp{
     font-family: 'Raleway', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
     color: white;
@@ -242,7 +243,42 @@ span.fa-location-dot {
     display: none;
 }
 
-.weekly-forecast{
+.cards {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: auto auto;
+}
+
+.cards .card{
+    width: 135px;
+    height: auto;
+    background-color: #1E213A;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h2 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.card .card-icon {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.card .day-temp{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .weekly-forecast{
     display: grid;
     gap: 20px 20px;
     grid-template-columns: auto auto;
@@ -263,7 +299,7 @@ span.fa-location-dot {
     max-width: 60%;
     width: 150px;
     height: auto;
-}
+} */
 
 .temp-text {
     display: flex;
@@ -320,7 +356,6 @@ span.fa-location-dot {
     word-spacing: 5px;
 }
 
-
 meter::-webkit-meter-optimum-value{
     box-shadow: 0 5px 5px -5px #999 inset;
     background: linear-gradient(90deg, #e10c0c var(--high), #04c81e var(--moderate), #84ff65 var(--moderate), #FFEC65 var(--low));
@@ -361,9 +396,6 @@ footer {
     color:rgba(219, 219, 219, 0.808)
 }
 
-
-
-
 @media only screen and (min-width: 400px) {
     .weather-icon{
         margin: auto;
@@ -371,6 +403,9 @@ footer {
 
     .humidity-percent {
         margin: 0 270px;
+    }
+    .cards .card {
+     width: 180px;
     }
 }
 
@@ -383,6 +418,12 @@ footer {
     .humidity-percent{
         margin: 0px 320px 0 370px;
     }
+
+    .cards .card {
+        width: 270px;
+    }
+
+    
 }
 
 @media only screen and (min-width: 1000px) {
@@ -392,26 +433,104 @@ footer {
     }
 
     .one-quarter-row{
+        border-top-left-radius: 0;
         border-top-right-radius: 0;
-        border-bottom-left-radius: 10px;
+        border-bottom-left-radius: 0;
         flex-basis: 30%;
         border: none;
-        overflow: none;
+        position: fixed;
+    }
+
+    .cloud-images{
+        margin-top: 20px;
+        display: grid;
+    }
+    
+    .top-section{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .cloud-1{
+        margin-left: -3rem;
+        opacity: 0.1;
+        width: 30%;
+    }
+    
+    .cloud-2 {
+        margin-right: -2.5rem;
+        opacity: 0.1;
+        width: 30%;
+    }
+    
+    .weather-icon {
+        margin-top: -50px;
+        margin-left: 6rem;
+        margin-right: 4rem;
+        padding: 0;
+    }
+    
+    img {
+        max-width: 180px;
+        /* width: 100%; */
+    }
+    
+    .cloud-4 {
+        margin-top: -4rem;
+        margin-left: -4rem;
+        opacity: 0.1;
+        width: 40%;
+    }
+    
+    .cloud-5 {
+        margin-top: -1.5rem;
+        margin-right: -1.5rem;
+        opacity: 0.1;
+        width: 30%;
+    }
+    
+    .temperature{
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #temp{
+        font-size: 90px;
+        margin: 25px 0 10px 0;
+    }
+    
+    .temp-symbol{
+        margin: 30px 5px 0;
+    }
+    
+    .temp-description{
+        margin-top: 70px !important;
+    }
+    
+    .date-time{
+        margin-top: 50px;
+    }
+    
+    .weather-location{
+        margin-top: 50px !important;
     }
 
     .two-third-row{
         border-bottom-left-radius: 0;
-        border-top-right-radius: 10px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
         border: none;
-        overflow: none;
-        flex-basis: 70%;
+        flex-basis: 10%;
+        margin-left: 324px; 
     }
 
     .main-content{
         margin: 30px;
     }
     
-
     .degree-icon{
         display: flex;
         justify-content: right;
@@ -419,7 +538,6 @@ footer {
         margin-right: 0;
         padding: 0 20px;
     }
-
 
     .celsius-container{
         margin-right: 10px;
@@ -440,20 +558,29 @@ footer {
         font-family: 'Raleway';
     }
 
-    .weekly-forecast{
+    .cards {
         display: flex;
+        margin: auto 30px;
+    }
+
+    .cards .card {
+        width: 120px;   
+    }
+
+    .highlight-container{
+        margin: auto 30px;
     }
 
     .content-container.top{
         display: grid;
         grid-template-columns: repeat(2, 2fr);
-        gap: 30px;
+        gap: 50px;
     }
 
     .content-container.bottom{
         display: grid;
         grid-template-columns: repeat(2, 2fr);
-        gap: 30px;   
+        gap: 50px;   
     }
 
     .humidity-percent{
@@ -469,7 +596,6 @@ footer {
         margin-top: 80px;
         font-size: 120px;
     }
-
     
     .temp-description{
         margin-top: 120px;
