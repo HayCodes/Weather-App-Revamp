@@ -13,8 +13,22 @@
     <div class="container">
         <div class="one-quarter-row">
             <div class="search-option">
-                    <a href="/searchmenu.html" class="go-to"><button type="menu" class="btn">Search for places </button></a>
+                    <a href="#" class="go-to" id="view-form-btn"><button type="menu" class="btn">Search for places </button></a>
                     <span class="fa-regular fa-compass"></span>
+            </div>
+
+            <div id="overlay" class="overlay">
+                <div class = "overlay-content">
+                    <a href="#" class="close" id="close-btn">&times;</a>
+                    <form action="" method="GET" class="search" id="search">
+                            <span class="fa-solid fa-magnifying-glass"></span>
+                            <input type="text" name="text" class="query" id="query" placeholder="search location"></input>
+                            <input type="submit" name="submit" class="submit" value="Search">
+                            <ul>
+                                <li>Cities</li>
+                            </ul>
+                    </form>
+                </div>
             </div>
 
             <div class="cloud-images">
@@ -34,7 +48,7 @@
             </div>
 
             <div class="temperature">
-                <p id="temp">0</p><span class="temp-symbol">°C</span>
+                <p id="temp">0</p><span class="temp-unit">°C</span>
             </div>
 
             <div class="temp-description">
@@ -54,11 +68,11 @@
             <section class="main-content">
                 <div class="degree-icon">
                     <div class="celsius-container">
-                        <button class="celsius-icon active">&#8451;</button>
+                        <button class="celsius active">°C</button>
                     </div>
     
                     <div class="fahrenheit-container">
-                        <button class="fahrenheit-icon">&#8457;</button>
+                        <button class="fahrenheit">°F</button>
                     </div>
                 </div>
         

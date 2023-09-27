@@ -7,10 +7,18 @@ const temp = document.getElementById("temp"),
     mainIcon = document.getElementById("icon"),
     visibility = document.getElementById("visibility"),
     humidity_status = document.querySelector('.humidity-status'),
-    airPressure = document.getElementById("air-pressure"); 
-    weatherCards = document.getElementById("weather-cards");
+    airPressure = document.getElementById("air-pressure"),
+    weatherCards = document.getElementById("weather-cards"),
+    celsiusBtn = document.querySelector(".celsius"),
+    fahrenheitBtn = document.querySelector(".fahrenheit"),
+    tempUnit = document.querySelectorAll(".temp-unit"),
+    viewFormButton = document.getElementById("view-form-btn"),
+    overlay = document.getElementById("overlay"),
+    closeButton = document.getElementById("close-btn"),
+    searchForm = document.getElementById("search"),
+    search = document.getElementById("query");
 
-
+    
 let currentCity; 
 let currentUnit = "°C";
 let hourlyorWeek = "Week";
@@ -68,7 +76,7 @@ function getPublicIp() {
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
-        currentCity = data.currentCity;
+        currentCity = data.city;
         getWeatherData(data.city, currentUnit, hourlyorWeek);
     })
     .catch((error) => {
@@ -108,6 +116,9 @@ function getWeatherData(city, unit, hourlyorWeek) {
             } else {
                 updateForecast(data.days, unit, 'week');
             }
+        })
+        .catch(error => {
+            alert("City not found in our database");
         });
 }
 
@@ -201,4 +212,38 @@ function updateForecast(data, unit, type) {
     }
 }
 
+fahrenheitBtn.addEventListener("click", () => {
+    changeUnit("°F");    
+});
+celsiusBtn.addEventListener("click", () => {
+    changeUnit("°C");
+});
 
+function changeUnit(unit) {
+    if (currentUnit !== unit) {
+        currentUnit = unit;
+    {
+        tempUnit.forEach(elem => {
+            elem.innerText = `${unit}`;
+        })
+
+        if (unit === "°C") {
+            celsiusBtn.classList.add("active");
+            fahrenheitBtn.classList.remove("active");
+        } else {
+            fahrenheitBtn.classList.add("active");
+            celsiusBtn.classList.remove("active");
+        }
+        getWeatherData(currentCity, currentUnit, hourlyorWeek);
+    }
+    }
+};
+
+//to make the search bar open 
+viewFormButton.addEventListener("click", function() {
+    overlay.style.display = "block";
+});
+
+closeButton.addEventListener('click', function() {
+    overlay.style.display = "none";
+});
