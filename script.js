@@ -247,3 +247,60 @@ viewFormButton.addEventListener("click", function() {
 closeButton.addEventListener('click', function() {
     overlay.style.display = "none";
 });
+
+
+//TO make search bar work to display cities and auto-fill them
+searchForm.addEventListener('submit', (e) => {  
+    e.preventDefault();
+    let location = search.value;
+    if (location) {
+        currentCity = location;
+        getWeatherData(currentCity, currentUnit, hourlyorWeek);
+    }
+});
+
+cities = [
+    "Lagos",
+    "Abuja",
+    "London",
+    "Cairo",
+    "San Francisco",
+    "Munich",
+    "Ibadan",
+    "Ilorin",
+    "Medina",
+    "Makkah",
+    "Jakarta",
+];
+
+let currentFocus;
+
+search.addEventListener("input", function(e) { 
+  let a,
+    b,
+    i,
+    val = this.value;
+
+ if (!val) {
+    return false;
+ }
+ currentFocus = -1;
+
+ e.document.createElement("ul");
+ a.setAttribute("id", "suggestions");
+ this.parentNode.appendChild(a);
+
+ for (i = 0; i < cities.length; i++) {
+    if (cities[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        b = document.createElement("li");
+        b.innerHTML = "<strong>" + cities[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += cities[i].substr(val.length);
+        b.innerHTML += "<input type = 'hidden' value = '" + cities[i] + "'>";
+
+        b.addEventListener("click", function (e) {
+            search.value = this.getElementsByTagName("input")[0].value;
+        });
+        a.appendChild(b);
+    }
+  }
+});

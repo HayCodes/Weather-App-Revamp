@@ -37,6 +37,10 @@ body {
     justify-content: space-between;
 }
 
+.btn:hover{
+    transform: scale(0.8,0.7);
+}
+
 .fa-compass {
     background-color: var(--ash);
     color: #E7E7EB;
@@ -217,6 +221,10 @@ span.fa-location-dot {
     margin: 0 auto;
 }
 
+.card:hover{
+    transform: translate(6px,6px);
+}
+
 .card .day-temp{
     font-size: 12px;
     display: flex;
@@ -251,6 +259,10 @@ span.fa-location-dot {
     margin-bottom: 20px;
 }
 
+.highlights-content:hover{
+    transform: translateY(5px);
+}
+
 .highlight-header{
     font-size: 1.4rem;
     font-weight: normal;
@@ -278,6 +290,7 @@ span.fa-location-dot {
     margin-bottom: 10px;
     word-spacing: 5px;
 }
+
 
 meter::-webkit-meter-optimum-value{
     box-shadow: 0 5px 5px -5px #999 inset;
@@ -408,19 +421,31 @@ footer {
     font-size: 18px;
     cursor: pointer;
     text-transform: capitalize;
-    border: 1px solid var(--ash);
     box-shadow: 0 0 10px rgba(146, 128, 128, 0 .2);
     transition: all 0.3s ease;
     margin: 20px auto;
 }
 
 .search ul li:hover{
-    transform: translateY(10px);
+    transform: translateY(3px);
+    border: 1px solid var(--ash);
 }
 
-.search ul li:active {
-    color: #E7E7EB;
+.search ul li:active{
+    color: #E7E7EB; 
+    border: 1px solid var(--ash);
 }
+
+.search ul li span {
+    display: none;
+}
+
+.search ul li:hover>span{
+    font-size: 0.8rem;
+    float: right;
+    display: block
+}
+
 
 
 @media only screen and (min-width: 400px) {
