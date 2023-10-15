@@ -37,8 +37,9 @@ body {
     justify-content: space-between;
 }
 
-.btn:hover{
+.btn:active{
     transform: scale(0.8,0.7);
+    transition: 0.2s;
 }
 
 .fa-compass {
@@ -209,6 +210,7 @@ span.fa-location-dot {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.3s ease-out;
 }
 
 .card h2 {
@@ -222,7 +224,7 @@ span.fa-location-dot {
 }
 
 .card:hover{
-    transform: translate(6px,6px);
+    transform: translate(2px, -3px);
 }
 
 .card .day-temp{
@@ -257,10 +259,11 @@ span.fa-location-dot {
     text-align: center;
     padding: 10px 0;
     margin-bottom: 20px;
+    transition: 0.3s ease-in-out;
 }
 
 .highlights-content:hover{
-    transform: translateY(5px);
+    transform: translateY(-5px);
 }
 
 .highlight-header{
@@ -294,7 +297,7 @@ span.fa-location-dot {
 
 meter::-webkit-meter-optimum-value{
     box-shadow: 0 5px 5px -5px #999 inset;
-    background: linear-gradient(90deg, #e10c0c var(--high), #84ff65 var(--moderate), #FFEC65 var(--low));
+    background-image: linear-gradient(90deg, #e10c0c var(--high), #84ff65 var(--moderate), #FFEC65 var(--low));
 }
 
 meter {
@@ -396,6 +399,13 @@ footer {
     border: none;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
+}
+
+.submit:active{
+    transform: scale(0.8,0.7); 
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 .close{
@@ -443,7 +453,7 @@ footer {
 .search ul li:hover>span{
     font-size: 0.8rem;
     float: right;
-    display: block
+    display: block;
 }
 
 
@@ -491,6 +501,7 @@ footer {
         flex-basis: 30%;
         border: none;
         position: fixed;
+        width: 350px;
     }
 
     .cloud-images{
@@ -563,7 +574,12 @@ footer {
     }
     
     .weather-location{
-        margin-top: 50px !important;
+        white-space: pre-wrap;
+    }
+
+    .overlay {
+        width: inherit;
+        height: 100%;
     }
 
     .two-third-row{
@@ -572,7 +588,7 @@ footer {
         border-bottom-right-radius: 0;
         border: none;
         flex-basis: 10%;
-        margin-left: 324px; 
+        margin-left: 350px; 
     }
 
     .main-content{
@@ -613,10 +629,10 @@ footer {
         font-weight: 600;
     }
 
-    .degree-icon button.active {
+    .degree-icon button.active{
         color: #E7E7EB;
     }
-    
+
     .cards {
         display: flex;
         margin: auto 30px;
@@ -657,7 +673,7 @@ footer {
     }
     
     .temp-description{
-        margin-top: 120px;
+        margin-top: 110px;
     }
 
     .weather-date{

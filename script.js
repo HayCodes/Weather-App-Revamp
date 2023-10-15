@@ -16,8 +16,8 @@ const temp = document.getElementById("temp"),
     overlay = document.getElementById("overlay"),
     closeButton = document.getElementById("close-btn"),
     searchForm = document.getElementById("search"),
-    search = document.getElementById("query");
-
+    search = document.getElementById("query"),
+    meter = document.querySelector('meter');
     
 let currentCity; 
 let currentUnit = "°C";
@@ -75,7 +75,7 @@ function getPublicIp() {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log(data);
+        // console.log(data);
         currentCity = data.city;
         getWeatherData(data.city, currentUnit, hourlyorWeek);
     })
@@ -98,16 +98,16 @@ function getWeatherData(city, unit, hourlyorWeek) {
         .then((data) => {
             let today = data.currentConditions;
             if (unit === "°C") {
-                temp.innerText = today.temp;
+                temp.innerText = today.temp.toFixed(0);
             } else { 
                 temp.innerText = `${celsiusToFahrenheit(today.temp)}`;
             }
             currentLocation.innerText = data.resolvedAddress;
             condition.innerText = today.conditions;
             windSpeed.innerText = today.windspeed;
-            humidity.innerText = today.humidity;
-            humidity_status.setAttribute("value", today.humidity);
-            humidity_status.setAttribute("style", "--low: 30%; --moderate: 50%; --high: 100%;");
+            humidity.innerText = today.humidity.toFixed(0);
+            meter.setAttribute('value', today.humidity)
+            meter.setAttribute("style", "--low: 30%; --moderate: 50%; --high: 100%;");
             visibility.innerText = today.visibility;
             airPressure.innerText = today.pressure; 
             mainIcon.src = getIcon(today.icon);
@@ -122,9 +122,10 @@ function getWeatherData(city, unit, hourlyorWeek) {
         });
 }
 
+
 //celsius to fahrenheit
 function celsiusToFahrenheit(temp) {
-    return ((temp * 9) / 5 + 32).toFixed(1);
+    return ((temp * 9) / 5 + 32).toFixed(0);
 } 
 
 function getIcon(condition) {
@@ -252,55 +253,99 @@ closeButton.addEventListener('click', function() {
 //TO make search bar work to display cities and auto-fill them
 searchForm.addEventListener('submit', (e) => {  
     e.preventDefault();
-    let location = search.value;
+    let location = search.value.trim();
     if (location) {
         currentCity = location;
         getWeatherData(currentCity, currentUnit, hourlyorWeek);
     }
 });
 
-cities = [
-    "Lagos",
-    "Abuja",
-    "London",
-    "Cairo",
-    "San Francisco",
-    "Munich",
-    "Ibadan",
-    "Ilorin",
-    "Medina",
-    "Makkah",
-    "Jakarta",
-];
 
-let currentFocus;
+//To get list of cities
+let cities = [];
+let currentFocus = -1;
 
-search.addEventListener("input", function(e) { 
-  let a,
-    b,
-    i,
-    val = this.value;
-
- if (!val) {
-    return false;
- }
- currentFocus = -1;
-
- e.document.createElement("ul");
- a.setAttribute("id", "suggestions");
- this.parentNode.appendChild(a);
-
- for (i = 0; i < cities.length; i++) {
-    if (cities[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-        b = document.createElement("li");
-        b.innerHTML = "<strong>" + cities[i].substr(0, val.length) + "</strong>";
-        b.innerHTML += cities[i].substr(val.length);
-        b.innerHTML += "<input type = 'hidden' value = '" + cities[i] + "'>";
-
-        b.addEventListener("click", function (e) {
-            search.value = this.getElementsByTagName("input")[0].value;
-        });
-        a.appendChild(b);
+async function fetchCities() {
+    try {
+        const response  = await fetch('cities.json');
+        cities = await response.json();
+    } catch (error) {
+        console.error('Error fetching city:', error);
+        cities = [];
     }
+}
+fetchCities();
+
+//to create a suggestion in search results
+
+search.addEventListener('input', function(e) { 
+  e.preventDefault();
+  removeSuggestions();  
+  let val = this.value;
+   
+  if (!val) {  
+    return false;
   }
+  currentFocus = -1;
+
+ let suggestionList = document.createElement("ul");
+ suggestionList.setAttribute("id", "suggestions");
+ this.parentNode.appendChild(suggestionList); 
+
+ for (i = 0; i < cities.length; i++){
+    if (cities[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        let suggestionItem = document.createElement("li");
+        suggestionItem.innerHTML = "<strong>" + cities[i].name.substr(0, val.length) + "</strong>";
+        suggestionItem.innerHTML += cities[i].name.substr(val.length);
+        suggestionItem.innerHTML += "<input type='hidden' value = '" + cities[i].name + "'>";
+        
+        suggestionItem.addEventListener("click", function (e) { 
+            search.value = this.getElementsByTagName("input")[0].value;
+            removeSuggestions();
+        });
+        suggestionList.appendChild(suggestionItem);
+    };
+}
 });
+
+function removeSuggestions() {
+    let x = document.getElementById("suggestions");
+    if(x) x.parentNode.removeChild(x);
+}
+
+search.addEventListener("keydown", function (e) {
+    let x = document.getElementById("suggestions");
+    if(x) x = x.getElementsByTagName('li');
+
+    if(e.key == 40) {
+        currentFocus++;
+        addActive(x);
+    } else if (e.key == 38) {
+        currentFocus--;
+        addActive(x)
+    }
+    if (e.key == 13) {
+        e.preventDefault();
+        if (currentFocus > -1) {
+            if (x) x[currentFocus].click();
+        }
+    }
+});
+
+function addActive(x){
+    if(!x) return false;
+    removeActive(x);
+    if(currentFocus > x.length) currentFocus = 0;
+    if(currentFocus < 0) currentFocus = x.length - 1;
+
+    x[currentFocus].classList.add("active");
+}
+
+function removeActive(x){
+    if(!x) return;
+    for(let i = 0; i < x.length; i++) {
+        x[i].classList.remove("active");
+    }
+}
+
+// search.setAttribute("list", "suggestions");
