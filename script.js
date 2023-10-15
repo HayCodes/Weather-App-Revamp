@@ -17,7 +17,8 @@ const temp = document.getElementById("temp"),
     closeButton = document.getElementById("close-btn"),
     searchForm = document.getElementById("search"),
     search = document.getElementById("query"),
-    meter = document.querySelector('meter');
+    meter = document.querySelector('meter'),
+    submitBtn = document.getElementById('submit-btn');
     
 let currentCity; 
 let currentUnit = "°C";
@@ -249,6 +250,9 @@ closeButton.addEventListener('click', function() {
     overlay.style.display = "none";
 });
 
+submitBtn.addEventListener('click', function() {
+    overlay.style.display = "none";
+});
 
 //TO make search bar work to display cities and auto-fill them
 searchForm.addEventListener('submit', (e) => {  
